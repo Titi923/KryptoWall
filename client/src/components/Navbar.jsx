@@ -25,7 +25,7 @@ const Navbar = () => {
             classProps={'hover:text-[#ddd]'}
           />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#1c42ca]">
+        <li className="bg-[#16bf3d] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#0ddd3d]">
           Login
         </li>
       </ul>
