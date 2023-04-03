@@ -40,7 +40,7 @@ const Welcome = () => {
           <button
             type="button"
             onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#16bf3d] p-3 rounded-full cursor-pointer hover:bg-[#0ddd3d]"
+            className="flex flex-row justify-center items-center my-5 bg-[#16bf3d] p-3 rounded-full cursor-pointer hover:bg-[#0ddd3d] mf:hover:scale-105 transition-all duration-300"
           >
             <p className="text-white text-base font-semibold">Connect Wallet</p>
           </button>
@@ -57,7 +57,7 @@ const Welcome = () => {
         </div>
 
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
-          <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
+          <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism mf:hover:scale-110 transition-all duration-300">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-center">
                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
@@ -108,7 +108,7 @@ const Welcome = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] transition-all duration-300 rounded-full cursor-pointer"
               >
                 Send now
               </button>
