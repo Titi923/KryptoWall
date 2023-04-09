@@ -28,12 +28,12 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { connectWallet } = useContext(TransactionContext);
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
 
   // const handleSubmit = () => {
 
   // }
-  
+
   return (
     <div className="flex w-full- justify-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 p-12 px-4">
@@ -45,13 +45,17 @@ const Welcome = () => {
             Send me some crypto to check for yourself if this app I made is
             working.
           </p>
-          <button
-            type="button"
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#16bf3d] p-3 rounded-full cursor-pointer hover:bg-[#0ddd3d] mf:hover:scale-105 transition-all duration-300"
-          >
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-          </button>
+          {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="flex flex-row justify-center items-center my-5 bg-[#16bf3d] p-3 rounded-full cursor-pointer hover:bg-[#0ddd3d] mf:hover:scale-105 transition-all duration-300"
+            >
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${commonStyles}`}>Blockchain</div>
             <div className={`${commonStyles}`}>Security</div>
