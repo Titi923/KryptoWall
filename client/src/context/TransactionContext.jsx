@@ -1,4 +1,4 @@
-import React, { useEffetct, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
 import { contractABI, contractAddress } from '../utils/constants';
@@ -17,8 +17,50 @@ const getEthereumContract = () => {
 }
 
 export const TransactionProvider = ({ children }) => {
+    const [connectedAccount, setConnectedAccount] = useState('');
+
+    const checkIfWalletIsConnected = async () => {
+        try {
+            if(!ethereum) return alert("Please install metamask")
+
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+        if(accounts.length) {
+            setConnectedAccount(accounts[0]);
+
+            // getAllTransactions();
+        } else {
+            console.log('No accounts found');
+        }
+
+        console.log(accounts)
+        } catch (error) {
+            console.log(error);
+
+            throw new Error("No ethereum object.");
+        }
+    }
+
+    const connectWallet = async () => {
+        try {
+            if(!ethereum) return alert("Please install metamask")
+            
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+            setCurrentAccount(accounts[0])
+        } catch (error) {
+            console.log(error);
+
+            throw new Error("No ethereum object.");
+        }
+    }
+
+    useEffect(() => {
+        checkIfWalletIsConnected(); // it is going to start only at the start of the application
+    }, [])
+    
     return (
-        <TransactionContext.Provider value={{ value: 'test' }}>
+        <TransactionContext.Provider value={{ connectWallet: connectWallet }}>
             {children}
         </TransactionContext.Provider>
     )    
