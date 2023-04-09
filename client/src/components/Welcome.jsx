@@ -1,7 +1,9 @@
+import { useContext } from 'react';
 import { AiFillAlipayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
+import { TransactionContext } from '../context/TransactionContext';
 import { Loader } from './';
 const commonStyles =
   'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white';
@@ -26,6 +28,18 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
+  const { value } = useContext(TransactionContext);
+
+  console.log(value)
+  
+  // const connectWallet = () => {
+
+  // }
+
+  // const handleSubmit = () => {
+
+  // }
+  
   return (
     <div className="flex w-full- justify-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 p-12 px-4">
